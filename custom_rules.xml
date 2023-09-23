@@ -1,0 +1,21 @@
+<group name="custom-rules">
+  <!-- Your existing custom rules go here -->
+
+  <rule id="1008" level="7">
+    <decoded_as>json</decoded_as>
+    <description>PowerShell Commands (T1059.001)</description>
+    <field name="win.system_provider_name">Microsoft-Windows-Sysmon</field>
+    <options>no_full_log</options>
+    <field name="win.system_channel">Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.system_event_id">1</field>
+    <field name="cmd_line">powershell.exe -</field>
+    <field name="cmd_line">powershell.exe -command Get-ExecutionPolicy</field>
+    <field name="cmd_line">powershell.exe -command Set-ExecutionPolicy</field>
+    <field name="cmd_line">powershell.exe -command stop-process</field>
+    <field name="cmd_line">powershell.exe -command net-stop</field>
+    <field name="cmd_line">powershell.exe -command cd</field>
+    <field name="cmd_line">powershell.exe -command dir</field>
+    <field name="cmd_line">powershell.exe -command iex*</field>
+    <field name="cmd_line">powershell.exe -command (new-object Net.WebClient).DownloadFile*</field>
+  </rule>
+</group>
