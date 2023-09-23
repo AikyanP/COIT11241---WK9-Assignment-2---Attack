@@ -1,0 +1,14 @@
+<group name="windows">
+  <rule id="100002" level="7">
+    <field name="win.system.providerName">Microsoft-Windows-Security-Auditing</field>
+    <description>Monitor for suspicious service stop events.</description>
+    <group>service_stop</group>
+    <options>alert_by_email</options>
+    <field name="win.system.eventID">7036</field>
+    <description>Service Stop Detected</description>
+    <field name="win.system.eventType">Audit Success</field>
+    <field name="win.system.keywords">0x8020000000000000</field>
+    <field name="win.system.param1">ServiceName</field>
+    <field name="win.system.param2">Stopped</field>
+  </rule>
+</group>
