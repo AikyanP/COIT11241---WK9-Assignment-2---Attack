@@ -1,0 +1,21 @@
+<!-- Local rules -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<!-- PowerShell script execution monitoring rule -->
+<group name="local,powershell">
+
+  <!-- PowerShell script execution -->
+  <rule id="100001" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="win.system.providerName">Microsoft-Windows-Security-Auditing</field>
+    <description>Monitoring PowerShell script execution</description>
+    <options>no_full_log</options>
+    <field name="win.system.eventID">4688</field>
+    <field name="win.system.eventRecordID">*PS_SCRIPT_EXECUTION*</field>
+    <field name="win.system.eventType">Start</field>
+    <field name="win.system.eventCategory">*ScriptName*</field>
+  </rule>
+
+</group>
